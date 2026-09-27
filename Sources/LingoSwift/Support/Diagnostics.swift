@@ -2,8 +2,7 @@ import Foundation
 import Translation
 
 /// Headless diagnostics: `LingoSwift.app/Contents/MacOS/LingoSwift --doctor`.
-/// Prints the state of the on-device translation engine and, when the language
-/// pack is installed, runs a real translation.
+/// Prints the app version and the state of the on-device translation language packs.
 enum Diagnostics {
 
     static var isRequested: Bool {
@@ -39,26 +38,9 @@ enum Diagnostics {
         print("  supported languages: \(supported.count)")
         print("")
 
-        guard #available(macOS 26.0, *) else {
-            print("Run a translation in the app to let macOS download the language pack.")
-            return
-        }
-
-        let status = await availability.status(from: english, to: simplified)
-        guard status == .installed else {
-            print("The English → Simplified Chinese language pack is not installed yet.")
-            print("Open LingoSwift.app, translate something and accept the system download prompt once.")
-            print("macOS handles that download in the app; it cannot be triggered headlessly.")
-            return
-        }
-
-        let session = TranslationSession(installedSource: english, target: simplified)
-        do {
-            let response = try await session.translate("Hello world! It is a beautiful day.")
-            print("  live translation: \"\(response.targetText)\"")
-        } catch {
-            print("  live translation failed: \(error)")
-        }
+        // A live translation can only be triggered from the app: it needs the macOS
+        // language pack, which is downloaded through a system prompt.
+        print("Open LingoSwift.app and translate once to let macOS download the language pack.")
     }
 
     private static func describe(_ status: LanguageAvailability.Status) -> String {

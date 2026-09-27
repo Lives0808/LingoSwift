@@ -286,12 +286,18 @@ final class AppStore: ObservableObject {
     // MARK: - Helpers
 
     static func message(for error: Error) -> String {
-        if #available(macOS 26.0, *) {
-            if TranslationError.alreadyCancelled ~= error { return "" }
-            if TranslationError.notInstalled ~= error {
-                return L("The language pack is not installed yet. Download it when the system asks, then translate again.")
-            }
+        // `TranslationError.alreadyCancelled` and `.notInstalled` only exist in the
+        // macOS 26 SDK, so match those causes by name to stay compatible with the
+        // macOS 15 SDK used by older toolchains.
+        switch causeName(of: error) {
+        case "alreadyCancelled":
+            return ""
+        case "notInstalled":
+            return L("The language pack is not installed yet. Download it when the system asks, then translate again.")
+        default:
+            break
         }
+
         if TranslationError.unsupportedLanguagePairing ~= error {
             return L("This language pair is not supported.")
         }
@@ -311,6 +317,15 @@ final class AppStore: ObservableObject {
             return L("The translation service hit an internal error. Please try again.")
         }
         return error.localizedDescription
+    }
+
+    /// Extracts the cause name from a `TranslationError`, for example `notInstalled`.
+    /// Used for causes that older SDKs do not expose as static members.
+    private static func causeName(of error: Error) -> String? {
+        let description = String(describing: error)
+        guard let range = description.range(of: "Cause.") else { return nil }
+        let name = description[range.upperBound...].prefix { $0.isLetter || $0.isNumber }
+        return name.isEmpty ? nil : String(name)
     }
 
     private func speak(_ text: String, language: AppLanguage?) {
