@@ -25,6 +25,7 @@
 "Detected: %@" = "已检测：%@";
 "Enter or paste the text to translate…" = "输入或粘贴要翻译的文字…";
 "The translation appears here." = "译文会显示在这里。";
+"The first translation asks macOS to download the language pack. After that LingoSwift works offline." = "首次翻译时 macOS 会提示下载语言包，下载一次之后即可离线使用。";
 "%ld characters" = "%ld 个字符";
 
 /* 语言包 */

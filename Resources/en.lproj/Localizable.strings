@@ -25,6 +25,7 @@
 "Detected: %@" = "Detected: %@";
 "Enter or paste the text to translate…" = "Enter or paste the text to translate…";
 "The translation appears here." = "The translation appears here.";
+"The first translation asks macOS to download the language pack. After that LingoSwift works offline." = "The first translation asks macOS to download the language pack. After that LingoSwift works offline.";
 "%ld characters" = "%ld characters";
 
 /* Language packs */

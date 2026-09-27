@@ -50,7 +50,7 @@ open build/LingoSwift.app
 
 调试运行：`swift run`
 
-自检（查看语言包状态、在已安装语言包时执行一次真实翻译）：
+自检（查看语言包状态，语言包已安装时会执行一次真实翻译）：
 
 ```bash
 build/LingoSwift.app/Contents/MacOS/LingoSwift --doctor

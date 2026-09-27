@@ -1,15 +1,8 @@
 import SwiftUI
 
-@main
+@available(macOS 15.0, *)
 struct LingoSwiftApp: App {
     @StateObject private var store = AppStore()
-
-    init() {
-        if Diagnostics.isRequested {
-            Diagnostics.run()
-            exit(0)
-        }
-    }
 
     var body: some Scene {
         Window(L("LingoSwift"), id: "main") {

@@ -10,16 +10,7 @@ enum Diagnostics {
         CommandLine.arguments.contains("--doctor") || CommandLine.arguments.contains("--selftest")
     }
 
-    static func run() {
-        let semaphore = DispatchSemaphore(value: 0)
-        Task.detached {
-            await performChecks()
-            semaphore.signal()
-        }
-        semaphore.wait()
-    }
-
-    private static func performChecks() async {
+    static func performChecks() async {
         let info = Bundle.main.infoDictionary
         print("LingoSwift doctor")
         print("  bundle id:     \(Bundle.main.bundleIdentifier ?? "unknown")")
@@ -56,7 +47,8 @@ enum Diagnostics {
         let status = await availability.status(from: english, to: simplified)
         guard status == .installed else {
             print("The English → Simplified Chinese language pack is not installed yet.")
-            print("Open LingoSwift.app, translate something and accept the system download prompt.")
+            print("Open LingoSwift.app, translate something and accept the system download prompt once.")
+            print("macOS handles that download in the app; it cannot be triggered headlessly.")
             return
         }
 

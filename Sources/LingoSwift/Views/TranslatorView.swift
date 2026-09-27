@@ -142,8 +142,9 @@ private struct TranslationPane: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     if store.targetText.isEmpty {
-                        Text(store.isTranslating ? L("Translating…") : L("The translation appears here."))
+                        Text(store.isTranslating ? L("Translating…") : emptyHint)
                             .foregroundStyle(.tertiary)
+                            .fixedSize(horizontal: false, vertical: true)
                     } else {
                         Text(store.targetText)
                             .font(.system(size: 15))
@@ -177,6 +178,13 @@ private struct TranslationPane: View {
         } footer: {
             EmptyView()
         }
+    }
+
+    private var emptyHint: String {
+        if store.languagePackStatus == .supported {
+            return L("The first translation asks macOS to download the language pack. After that LingoSwift works offline.")
+        }
+        return L("The translation appears here.")
     }
 }
 
