@@ -1,0 +1,71 @@
+/* LingoSwift – English strings (keys are English by default) */
+
+"LingoSwift" = "LingoSwift";
+
+/* Languages */
+"English" = "English";
+"Simplified Chinese" = "Simplified Chinese";
+"Traditional Chinese" = "Traditional Chinese";
+
+/* Translation screen */
+"Source" = "Source";
+"Translation" = "Translation";
+"Translate" = "Translate";
+"Translating…" = "Translating…";
+"Auto-translate" = "Auto-translate";
+"Swap Languages" = "Swap Languages";
+"Copy" = "Copy";
+"Copied" = "Copied";
+"Copy Translation" = "Copy Translation";
+"Clear" = "Clear";
+"Speak" = "Speak";
+"Source Language" = "Source Language";
+"Target Language" = "Target Language";
+"Detect Language" = "Detect Language";
+"Detected: %@" = "Detected: %@";
+"Enter or paste the text to translate…" = "Enter or paste the text to translate…";
+"The translation appears here." = "The translation appears here.";
+"%ld characters" = "%ld characters";
+
+/* Language packs */
+"Language pack ready" = "Language pack ready";
+"Language pack needed" = "Language pack needed";
+"Language pair not supported" = "Language pair not supported";
+"Start a translation and follow the system prompt to download the language pack once." = "Start a translation and follow the system prompt to download the language pack once.";
+
+/* Errors */
+"The language pack is not installed yet. Download it when the system asks, then translate again." = "The language pack is not installed yet. Download it when the system asks, then translate again.";
+"This language pair is not supported." = "This language pair is not supported.";
+"The source language is not supported." = "The source language is not supported.";
+"The target language is not supported." = "The target language is not supported.";
+"LingoSwift could not tell which language the text is in." = "LingoSwift could not tell which language the text is in.";
+"There is nothing to translate." = "There is nothing to translate.";
+"The translation service hit an internal error. Please try again." = "The translation service hit an internal error. Please try again.";
+
+/* History */
+"History" = "History";
+"No History Yet" = "No History Yet";
+"Translations you make will show up here." = "Translations you make will show up here.";
+"Search history" = "Search history";
+"Clear History" = "Clear History";
+"Delete" = "Delete";
+
+/* Settings */
+"Settings" = "Settings";
+"General" = "General";
+"Auto-translate while typing" = "Auto-translate while typing";
+"Auto-translate delay" = "Auto-translate delay";
+"%.1f s" = "%.1f s";
+"Keep at most %ld history entries" = "Keep at most %ld history entries";
+"Translation engine" = "Translation engine";
+"Apple on-device translation" = "Apple on-device translation";
+"Works offline" = "Works offline";
+"Yes, after the language pack is downloaded." = "Yes, after the language pack is downloaded.";
+"About" = "About";
+"Version" = "Version";
+"Source code" = "Source code";
+"Reset Settings and History" = "Reset Settings and History";
+
+/* Menus */
+"LingoSwift on GitHub" = "LingoSwift on GitHub";
+"Translate (⌘↩)" = "Translate (⌘↩)";

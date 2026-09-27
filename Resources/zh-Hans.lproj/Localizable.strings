@@ -1,0 +1,71 @@
+/* LingoSwift – 简体中文字符串 */
+
+"LingoSwift" = "LingoSwift";
+
+/* 语言 */
+"English" = "英语";
+"Simplified Chinese" = "简体中文";
+"Traditional Chinese" = "繁体中文";
+
+/* 翻译界面 */
+"Source" = "原文";
+"Translation" = "译文";
+"Translate" = "翻译";
+"Translating…" = "翻译中…";
+"Auto-translate" = "自动翻译";
+"Swap Languages" = "交换语言";
+"Copy" = "复制";
+"Copied" = "已复制";
+"Copy Translation" = "复制译文";
+"Clear" = "清空";
+"Speak" = "朗读";
+"Source Language" = "源语言";
+"Target Language" = "目标语言";
+"Detect Language" = "自动检测";
+"Detected: %@" = "已检测：%@";
+"Enter or paste the text to translate…" = "输入或粘贴要翻译的文字…";
+"The translation appears here." = "译文会显示在这里。";
+"%ld characters" = "%ld 个字符";
+
+/* 语言包 */
+"Language pack ready" = "语言包已就绪";
+"Language pack needed" = "需要下载语言包";
+"Language pair not supported" = "不支持该语言组合";
+"Start a translation and follow the system prompt to download the language pack once." = "首次翻译时按系统提示下载一次语言包，之后即可离线使用。";
+
+/* 错误提示 */
+"The language pack is not installed yet. Download it when the system asks, then translate again." = "系统尚未安装该语言包。按系统提示下载后再翻译一次即可。";
+"This language pair is not supported." = "不支持该语言组合。";
+"The source language is not supported." = "不支持该源语言。";
+"The target language is not supported." = "不支持该目标语言。";
+"LingoSwift could not tell which language the text is in." = "无法识别这段文字的语言。";
+"There is nothing to translate." = "没有可翻译的内容。";
+"The translation service hit an internal error. Please try again." = "翻译服务出现内部错误，请重试。";
+
+/* 历史记录 */
+"History" = "历史记录";
+"No History Yet" = "暂无历史记录";
+"Translations you make will show up here." = "你翻译过的内容会显示在这里。";
+"Search history" = "搜索历史记录";
+"Clear History" = "清空历史记录";
+"Delete" = "删除";
+
+/* 设置 */
+"Settings" = "设置";
+"General" = "通用";
+"Auto-translate while typing" = "输入时自动翻译";
+"Auto-translate delay" = "自动翻译延迟";
+"%.1f s" = "%.1f 秒";
+"Keep at most %ld history entries" = "最多保留 %ld 条历史记录";
+"Translation engine" = "翻译引擎";
+"Apple on-device translation" = "Apple 端上翻译";
+"Works offline" = "离线可用";
+"Yes, after the language pack is downloaded." = "下载语言包后即可离线使用。";
+"About" = "关于";
+"Version" = "版本";
+"Source code" = "源代码";
+"Reset Settings and History" = "恢复默认设置并清空历史";
+
+/* 菜单 */
+"LingoSwift on GitHub" = "LingoSwift 的 GitHub 页面";
+"Translate (⌘↩)" = "翻译（⌘↩）";
