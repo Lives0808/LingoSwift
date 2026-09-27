@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LingoSwift</string>
+
+    <!-- Translation screen -->
+    <string name="source">Source</string>
+    <string name="translation">Translation</string>
+    <string name="translate">Translate</string>
+    <string name="translating">Translating…</string>
+    <string name="source_placeholder">Enter or paste the text to translate…</string>
+    <string name="translation_placeholder">The translation appears here.</string>
+    <string name="characters">%1$d characters</string>
+    <string name="auto_translate">Auto-translate</string>
+    <string name="swap_languages">Swap languages</string>
+    <string name="copy">Copy</string>
+    <string name="speak">Speak</string>
+    <string name="clear">Clear</string>
+    <string name="detect_language">Detect language</string>
+    <string name="detected">Detected: %1$s</string>
+
+    <!-- First run / models -->
+    <string name="first_run_title">Download the offline language model</string>
+    <string name="first_run_body">LingoSwift translates on your phone with ML Kit models. The first use of a language pair downloads about 30 MB; after that everything works offline.</string>
+    <string name="download_model">Download model</string>
+    <string name="downloading_model">Downloading…</string>
+    <string name="not_now">Not now</string>
+
+    <!-- History -->
+    <string name="history">History</string>
+    <string name="search_history">Search history</string>
+    <string name="clear_history">Clear all</string>
+    <string name="delete">Delete</string>
+    <string name="empty_history">Translations you make will show up here.</string>
+    <string name="no_search_results">No matching translations.</string>
+
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="auto_translate_while_typing">Auto-translate while typing</string>
+    <string name="auto_translate_delay">Auto-translate delay</string>
+    <string name="history_limit">History entries kept</string>
+    <string name="engine_label">Translation engine</string>
+    <string name="engine_value">ML Kit on-device</string>
+    <string name="version_label">Version</string>
+    <string name="privacy_label">Privacy</string>
+    <string name="privacy_value">No data leaves your phone</string>
+
+    <!-- Errors -->
+    <string name="error_model_missing">The language model is not downloaded yet. Connect to the internet and tap “Download model”.</string>
+    <string name="error_storage">Not enough storage space to download the language model.</string>
+    <string name="error_network">Could not reach the model download service. Check your connection and try again.</string>
+    <string name="error_no_text">There is nothing to translate.</string>
+    <string name="error_language_pair">This language pair is not supported.</string>
+    <string name="error_unknown">Translation failed. Please try again.</string>
+</resources>

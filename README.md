@@ -1,14 +1,69 @@
 # LingoSwift
 
-一个干净利落的 macOS 中英翻译应用，基于 Apple 的端上翻译引擎 —— 免费、离线、无需 API Key，文本不离开你的电脑。
+中英翻译应用，两个平台：
 
-A clean English ⇄ Chinese translator for macOS, powered by Apple's on-device translation engine. Free, private, offline after the one-time language pack download, and no API keys.
+| 平台 | 状态 | 引擎 | 安装方式 |
+|---|---|---|---|
+| **Android** | ✅ 1.0.0 | Google ML Kit 端上模型（离线、免费、无需 Key） | 下载 APK 直接安装 |
+| **macOS** | ✅ 1.0.0 | Apple `Translation` 框架（端上、离线、免费） | 下载 DMG 拖入应用程序 |
 
-![macOS 15+](https://img.shields.io/badge/macOS-15.0%2B-blue) ![Swift 6](https://img.shields.io/badge/Swift-6-orange) ![License MIT](https://img.shields.io/badge/license-MIT-green)
+A clean English ⇄ Chinese translator for **Android** and **macOS**. Both versions translate entirely on-device: no accounts, no API keys, no telemetry, and no data leaving your phone or Mac.
+
+![Android 8.0+](https://img.shields.io/badge/Android-8.0%2B-3DDC84) ![macOS 15+](https://img.shields.io/badge/macOS-15.0%2B-blue) ![Kotlin](https://img.shields.io/badge/Kotlin-2.0-7F52FF) ![Swift 6](https://img.shields.io/badge/Swift-6-orange) ![License MIT](https://img.shields.io/badge/license-MIT-green)
 
 ---
 
-## 中文说明
+## Android 版
+
+### 功能
+
+- **英语 ⇄ 中文**互译，可自动检测源语言
+- **端上翻译**：使用 Google ML Kit 离线模型，翻译在手机上完成，不上传文本
+- **边输入边翻译**：自动翻译可开关，延迟可调
+- **历史记录**：可搜索、点击回填、单条删除、一键清空
+- **朗读**：系统 TTS 朗读原文或译文
+- **Material 3 界面**：支持深色模式与动态取色，中文 / 英文自动切换
+- 常用操作都在一屏内：交换语言、复制、清空
+
+### 系统要求
+
+- Android 8.0（API 26）或更高版本，arm64 / x86_64 设备均可
+- 首次使用某个语言方向需要联网下载模型（约 30 MB），之后**完全离线**
+- 国内网络下载模型需要能访问 Google 服务（模型由 Google 托管）；下载一次后就再也不用联网了
+
+### 安装
+
+1. 从 [Releases](https://github.com/Lives0808/LingoSwift/releases) 下载 `LingoSwift-android-x.y.z.apk`，传到手机（微信/数据线/网盘都行）。
+2. 用手机上的文件管理器点开 APK，按提示允许「安装未知应用」。
+3. 打开 LingoSwift，点「下载模型」等它跑完，就可以开始翻译了。
+
+APK 用仓库里的自签名密钥签名（`android/keystore/`），所以后续版本可以直接覆盖安装。
+
+### 从源码构建
+
+需要 JDK 17 和 Android SDK（`platforms;android-35`、`build-tools;35.0.0`）：
+
+```bash
+cd android
+./gradlew assembleDebug     # 或 ./gradlew assembleRelease
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+```
+
+国内网络需要在 `~/.gradle/gradle.properties` 里给 Gradle 配代理才能拉取 Google Maven 依赖：
+
+```properties
+systemProp.https.proxyHost=127.0.0.1
+systemProp.https.proxyPort=7890
+```
+
+### 与 macOS 版的差异
+
+- ML Kit 只有 `zh` 一个中文模型，所以 Android 版是**简体中文**，没有简体/繁体选项
+- macOS 版用 Apple 的翻译模型，Android 版用 Google 的，译文风格会有些差异
+
+---
+
+## 中文说明（macOS 版）
 
 ### 功能
 
@@ -42,84 +97,36 @@ Apple 的翻译模型由系统管理。第一次翻译某个语言方向时，ma
 只需要 macOS 自带的 Xcode Command Line Tools（无需完整 Xcode）：
 
 ```bash
-git clone https://github.com/Lives0808/LingoSwift.git
-cd LingoSwift
 VERSION=1.0.0 ./Scripts/package.sh     # 生成 build/LingoSwift-1.0.0.dmg 和 .zip
 open build/LingoSwift.app
 ```
 
-调试运行：`swift run`
-
-自检（查看语言包状态，语言包已安装时会执行一次真实翻译）：
+调试运行：`swift run`。自检（查看语言包状态）：
 
 ```bash
 build/LingoSwift.app/Contents/MacOS/LingoSwift --doctor
 ```
 
-### 项目结构
-
-```
-Sources/LingoSwift/
-  App/        应用入口、菜单命令
-  Models/     语言模型、状态管理 (AppStore)、历史记录
-  Views/      主界面、历史侧边栏、设置
-  Support/    本地化辅助、诊断模式
-Resources/    en.lproj / zh-Hans.lproj 界面文案
-Packaging/    Info.plist 模板
-Scripts/      图标生成、打包脚本
-```
-
-### 隐私
-
-LingoSwift 不联网、不收集任何数据，也没有任何第三方依赖。翻译完全由 macOS 在本机完成，历史记录只保存在本机的 `UserDefaults` 里。
-
 ---
 
-## English
+## 项目结构
 
-### Features
-
-- **English ⇄ Simplified / Traditional Chinese** with automatic source language detection
-- **On-device translation** via Apple's `Translation` framework — no accounts, no API keys, nothing leaves your Mac
-- **Translate as you type** with a configurable debounce delay
-- **Searchable history sidebar** — click an entry to load it back into the editor
-- **Speak** the source text or the translation using system voices
-- **English / Chinese UI** that follows the system language
-- Shortcuts: `⌘↩` translate, `⌘⇧S` swap languages, `⌘⇧C` copy translation, `⌘K` clear
-
-### Requirements
-
-- macOS 15.0 (Sequoia) or later
-- Apple silicon or Intel (universal binary)
-
-### Install
-
-1. Download `LingoSwift-x.y.z.dmg` (or `.zip`) from [Releases](https://github.com/Lives0808/LingoSwift/releases).
-2. Open the DMG and drag **LingoSwift** into Applications.
-3. The app is self-signed (there is no paid Apple Developer certificate), so the first launch is blocked by Gatekeeper. Either **right-click LingoSwift → Open → Open**, or run once:
-   `xattr -dr com.apple.quarantine /Applications/LingoSwift.app`
-
-### First run
-
-Apple manages the translation models. The first time you translate a language pair, macOS asks whether to download the language pack. Accept once, and everything works offline afterwards. The badge in the toolbar shows the current state of the pack.
-
-### Build from source
-
-Only the Xcode Command Line Tools are required (no full Xcode):
-
-```bash
-git clone https://github.com/Lives0808/LingoSwift.git
-cd LingoSwift
-VERSION=1.0.0 ./Scripts/package.sh     # produces build/LingoSwift-1.0.0.dmg and .zip
+```
+android/                  Android 应用（Kotlin + Jetpack Compose + ML Kit）
+  app/src/main/java/com/lives0808/lingoswift/
+    data/                 语言模型、翻译引擎、历史记录、状态管理
+    ui/                   主界面、历史记录、设置、主题
+  keystore/               APK 签名密钥（公开，便于覆盖安装）
+Sources/LingoSwift/       macOS 应用（SwiftUI + Apple Translation）
+  App/ Models/ Views/ Support/
+Resources/                macOS 界面文案（en / zh-Hans）
+Packaging/                macOS Info.plist 模板
+Scripts/                  图标生成、打包脚本（macOS + Android 图标）
 ```
 
-Run in development with `swift run`, or check the engine with `--doctor`.
+## 隐私
 
-### Privacy
-
-LingoSwift makes no network requests, collects no data and has no third-party dependencies. Translation happens entirely on your Mac and history stays in local `UserDefaults`.
-
----
+两个版本都不收集任何数据，也没有第三方统计 SDK。翻译完全在设备上完成：历史记录只保存在本机（macOS 用 `UserDefaults`，Android 用 `SharedPreferences`）。唯一需要联网的时刻是首次下载翻译模型。
 
 ## License
 
