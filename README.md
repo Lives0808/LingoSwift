@@ -1,15 +1,20 @@
 # LingoSwift
 
+[![Release](https://img.shields.io/github/v/release/Lives0808/LingoSwift?style=flat-square&color=6366F1&label=release)](https://github.com/Lives0808/LingoSwift/releases)
+[![License](https://img.shields.io/github/license/Lives0808/LingoSwift?style=flat-square&color=6366F1&label=license)](LICENSE)
+[![Android 8.0+](https://img.shields.io/badge/Android-8.0%2B-6366F1?style=flat-square&logo=android&logoColor=white)](https://github.com/Lives0808/LingoSwift/releases)
+[![macOS 15+](https://img.shields.io/badge/macOS-15.0%2B-6366F1?style=flat-square&logo=apple&logoColor=white)](https://github.com/Lives0808/LingoSwift/releases)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.0-6366F1?style=flat-square&logo=kotlin&logoColor=white)](https://kotlinlang.org)
+[![Swift](https://img.shields.io/badge/Swift-6-6366F1?style=flat-square&logo=swift&logoColor=white)](https://swift.org)
+
 中英翻译应用，两个平台：
 
 | 平台 | 状态 | 引擎 | 安装方式 |
 |---|---|---|---|
-| **Android** | ✅ 1.0.0 | Google ML Kit 端上模型（离线、免费、无需 Key） | 下载 APK 直接安装 |
-| **macOS** | ✅ 1.0.0 | Apple `Translation` 框架（端上、离线、免费） | 下载 DMG 拖入应用程序 |
+| **Android** | ✅ 1.0.1 | Google ML Kit 端上模型（离线、免费、无需 Key） | 下载 APK 直接安装 |
+| **macOS** | ✅ 1.0.1 | Apple `Translation` 框架（端上、离线、免费） | 下载 DMG 拖入应用程序 |
 
 A clean English ⇄ Chinese translator for **Android** and **macOS**. Both versions translate entirely on-device: no accounts, no API keys, no telemetry, and no data leaving your phone or Mac.
-
-![Android 8.0+](https://img.shields.io/badge/Android-8.0%2B-3DDC84) ![macOS 15+](https://img.shields.io/badge/macOS-15.0%2B-blue) ![Kotlin](https://img.shields.io/badge/Kotlin-2.0-7F52FF) ![Swift 6](https://img.shields.io/badge/Swift-6-orange) ![License MIT](https://img.shields.io/badge/license-MIT-green)
 
 ---
 
@@ -97,7 +102,7 @@ Apple 的翻译模型由系统管理。第一次翻译某个语言方向时，ma
 只需要 macOS 自带的 Xcode Command Line Tools（无需完整 Xcode）：
 
 ```bash
-VERSION=1.0.0 ./Scripts/package.sh     # 生成 build/LingoSwift-1.0.0.dmg 和 .zip
+VERSION=1.0.1 ./Scripts/package.sh     # 生成 build/LingoSwift-1.0.1.dmg 和 .zip
 open build/LingoSwift.app
 ```
 
