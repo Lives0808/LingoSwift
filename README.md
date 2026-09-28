@@ -1,6 +1,6 @@
 # LingoSwift
 
-[![Release](https://img.shields.io/github/v/release/Lives0808/LingoSwift?style=flat-square&color=6366F1&label=release)](https://github.com/Lives0808/LingoSwift/releases)
+[![Release](https://img.shields.io/github/v/release/Lives0808/LingoSwift?style=flat-square&color=6366F1&label=release&filter=v*)](https://github.com/Lives0808/LingoSwift/releases)
 [![License](https://img.shields.io/github/license/Lives0808/LingoSwift?style=flat-square&color=6366F1&label=license)](LICENSE)
 [![Android 8.0+](https://img.shields.io/badge/Android-8.0%2B-6366F1?style=flat-square&logo=android&logoColor=white)](https://github.com/Lives0808/LingoSwift/releases)
 [![macOS 15+](https://img.shields.io/badge/macOS-15.0%2B-6366F1?style=flat-square&logo=apple&logoColor=white)](https://github.com/Lives0808/LingoSwift/releases)
